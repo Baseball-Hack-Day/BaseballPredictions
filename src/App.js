@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './index.css';
 import { players } from './stats'
 import Team from './Team'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 
 class App extends Component {
   constructor(){
@@ -56,6 +56,9 @@ class App extends Component {
 
     return (
       <Router>
+        {/* <Switch>
+         <Route path={`/team`} component={Team} />
+         </Switch> */}
       <div className="main-container">
         <div className="header">
           <h1>MLB Predictions</h1>
@@ -70,7 +73,8 @@ class App extends Component {
           <h1>List of Teams for MiddleBury School District</h1>
           {/* {playersInfo} */}
           
-          {Object.keys(teamNames).map(team => <ul><Link to={`/${team}`}>{team}</Link></ul>)}
+          {Object.keys(teamNames).map(team =><ul>{team}</ul>)}
+            {/* //  <ul><Link to={`/${team}`}>{team}</Link></ul>)} */}
 
           <select onChange={this.handleChange}>
            {Object.keys(teamNames).map((team, idx) => {
@@ -79,6 +83,7 @@ class App extends Component {
              )
            })}
           </select>
+          <Team player={this.state.selectedTeam1} />
 
           <select onChange={this.handleChanges}>
            {Object.keys(teamNames).map((team, idx) => {
@@ -87,6 +92,7 @@ class App extends Component {
              )
            })}
           </select>
+          <Team player={this.state.selectedTeam2} />
 
         </div>
       </div> 
