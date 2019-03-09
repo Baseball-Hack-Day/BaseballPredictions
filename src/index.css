@@ -25,5 +25,13 @@ h1 {
 }
 
 .players-container {
-  text-align: center
+  display: flex;
+  text-align: center;
+  justify-content: center
+}
+
+.links {
+  display: flex;
+  width: 500px;
+  flex-wrap: wrap
 }

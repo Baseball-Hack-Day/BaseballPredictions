@@ -51,8 +51,11 @@ class App extends Component {
       }
     });
 
+    let BOSTeam = players.filter(player => player.teamID === 'BOS')
+
     console.log('teams', teamNames)
     console.log('SELECTEd', this.state.selectedTeam1)
+    console.log('BOSSSS', BOSTeam)
 
     return (
       <Router>
@@ -69,11 +72,36 @@ class App extends Component {
           <img src="https://www.baseballtradingpins.net/wp-content/uploads/2018/04/Youth-Baseball-1024x682.jpeg" />
         </div>
         
+        <h1>List of Teams for MiddleBury School District</h1>
         <div className="players-container">
-          <h1>List of Teams for MiddleBury School District</h1>
+          {
+            <table>
+              <tbody>
+                <tr>
+                  <th>Player</th>
+                  <th>Home Runs</th>
+                  <th>Runs</th>
+                  <th>Hits</th>
+                  <th>Games</th>
+                </tr>
+                {
+                  BOSTeam.map(player => (
+                    <tr>
+                      <td>{player.nameFirst} {player.nameLast}</td>
+                      <td>{player.HR}</td>
+                      <td>{player.R}</td>
+                      <td>{player.H}</td>
+                      <td>{player.G}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          }
           {/* {playersInfo} */}
-          
-          {Object.keys(teamNames).map(team =><ul>{team}</ul>)}
+          <div className="links">
+            {Object.keys(teamNames).map(team =><ul>{team}</ul>)}
+          </div>
             {/* //  <ul><Link to={`/${team}`}>{team}</Link></ul>)} */}
 
           <select onChange={this.handleChange}>
@@ -92,7 +120,7 @@ class App extends Component {
              )
            })}
           </select>
-          <Team player={this.state.selectedTeam2} />
+          {/* <Team player={this.state.selectedTeam2} /> */}
 
         </div>
       </div> 
