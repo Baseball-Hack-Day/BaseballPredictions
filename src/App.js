@@ -22,7 +22,7 @@ class App extends Component {
           <h1>List of Players for MiddleBury School District</h1>
           {playersInfo}
         </div>
-      </div>
+      </div> 
     );
   }
 }
