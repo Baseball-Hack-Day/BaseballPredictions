@@ -51,11 +51,10 @@ class App extends Component {
       }
     });
 
-    let BOSTeam = players.filter(player => player.teamID === 'BOS')
+    let BALTeam = players.filter(player => player.teamID === 'BAL')
 
     console.log('teams', teamNames)
     console.log('SELECTEd', this.state.selectedTeam1)
-    console.log('BOSSSS', BOSTeam)
 
     return (
       <Router>
@@ -79,19 +78,23 @@ class App extends Component {
               <tbody>
                 <tr>
                   <th>Player</th>
-                  <th>Home Runs</th>
-                  <th>Runs</th>
-                  <th>Hits</th>
                   <th>Games</th>
+                  <th>Runs</th>
+                  <th>Home Runs</th>
+                  <th>Hits</th>
+                  <th>Strikeouts</th>
+                  <th>Stolen Bases</th>
                 </tr>
                 {
-                  BOSTeam.map(player => (
+                  BALTeam.map(player => (
                     <tr>
                       <td>{player.nameFirst} {player.nameLast}</td>
-                      <td>{player.HR}</td>
-                      <td>{player.R}</td>
-                      <td>{player.H}</td>
                       <td>{player.G}</td>
+                      <td>{player.R}</td>
+                      <td>{player.HR}</td>
+                      <td>{player.H}</td>
+                      <td>{player.SO}</td>
+                      <td>{player.SB}</td>
                     </tr>
                   ))
                 }

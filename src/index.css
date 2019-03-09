@@ -35,3 +35,7 @@ h1 {
   width: 500px;
   flex-wrap: wrap
 }
+
+table, td {
+  border: 1px solid black;
+}
