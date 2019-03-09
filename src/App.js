@@ -51,7 +51,7 @@ class App extends Component {
       }
     });
 
-    let BALTeam = players.filter(player => player.teamID === 'BAL')
+    // let BALTeam = players.filter(player => player.teamID === 'BAL')
 
     console.log('teams', teamNames)
     console.log('SELECTEd', this.state.selectedTeam1)
@@ -73,7 +73,7 @@ class App extends Component {
         
         <h1>List of Teams for MiddleBury School District</h1>
         <div className="players-container">
-          {
+          {/* {
             <table>
               <tbody>
                 <tr>
@@ -100,7 +100,7 @@ class App extends Component {
                 }
               </tbody>
             </table>
-          }
+          } */}
           {/* {playersInfo} */}
           <div className="links">
             {Object.keys(teamNames).map(team =><ul>{team}</ul>)}
@@ -123,7 +123,7 @@ class App extends Component {
              )
            })}
           </select>
-          {/* <Team player={this.state.selectedTeam2} /> */}
+          <Team player={this.state.selectedTeam2} />
 
         </div>
       </div> 
